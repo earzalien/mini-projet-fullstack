@@ -236,8 +236,8 @@ Sur GitHub :
 
 ## URLs actuelles
 
-- Frontend : `https://earzalien.github.io/mini-projet-fullstack/`
-- Backend : `https://mini-projet-fullstack.vercel.app`
+- Frontend : https://earzalien.github.io/mini-projet-fullstack/
+- Backend : https://mini-projet-fullstack.vercel.app
 
 ---
 
