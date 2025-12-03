@@ -8,22 +8,22 @@ function App() {
     const [message, setMessage] = useState<string>("Chargement...");
     const [error, setError] = useState<string | null>(null);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
-        const fetchMessage = async () => {
-            try {
-                const response = await fetch(
-                    "http://localhost:4000/api/message",
-                );
-                if (!response.ok) {
-                    throw new Error(`HTTP error ${response.status}`);
-                }
-                const data = (await response.json()) as ApiResponse;
-                setMessage(data.message);
-                setError(null);
-            } catch (_err) {
-                setError("Erreur lors de l'appel API");
-            }
-        };
+		const fetchMessage = async () => {
+		try {
+		const response = await fetch(`${API_URL}/api/message`);
+		if (!response.ok) {
+		throw new Error(`HTTP error ${response.status}`);
+		}
+		const data = (await response.json()) as ApiResponse;
+		setMessage(data.message);
+		setError(null);
+		} catch {
+		setError("Erreur lors de l'appel API");
+		}
+		};
 
         fetchMessage();
     }, []);
