@@ -1,12 +1,15 @@
 {
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "husky": "^9.1.7"
   },
   "scripts": {
-    "prepare": "husky"
+	"dev:backend": "cd backend && npm run dev",
+	"dev:frontend": "cd frontend && npm run dev",
+	"dev": "concurrently -n backend,frontend -c green,yellow \"npm run dev:backend\" \"npm run dev:frontend\"",
+	"prepare": "husky"
   },
   "lint-staged": {
-  "src/**/*.{ts,tsx,js,jsx}": "biome check --write"
-}
-
+	"src/**/*.{ts,tsx,js,jsx}": "biome check --write"
+  }
 }
